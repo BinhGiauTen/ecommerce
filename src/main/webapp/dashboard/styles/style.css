@@ -100,6 +100,19 @@ p {
   max-width: 1120px;
   width: 100%;
 }
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 4px 0 0;
+}
 .pre-loader {
   background: #fff;
   background-position: center center;

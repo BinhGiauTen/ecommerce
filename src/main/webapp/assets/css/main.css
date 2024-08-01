@@ -21,13 +21,21 @@
     cursor: text;
     padding-left: 10px;
 }
+.header__left-dashboard {
+    text-transform: uppercase;
+    color: var(--white-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 30px;
+}
 .header__right-account {
     font-size: 1.3rem;
     font-weight: 500;
     color: var(--white-color);
-    float: left;
     cursor: text;
     padding-left: 10px;
+    text-decoration: none;
+    
 }
 
 .header__right {
@@ -2416,3 +2424,24 @@ i.product__action__like-icon-fill {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+.checkout-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.checkout-summary-total {
+    display: flex;
+    align-items: center;
+}
+.total-price-cart{
+	margin-left: 40px;
+}
+

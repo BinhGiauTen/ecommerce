@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import connectDB.ConnectDB;
-import models.Category;
-import models.Product;
 import models.ProductSpecification;
 
 public class ProductSpecDAO {

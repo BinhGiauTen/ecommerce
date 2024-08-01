@@ -28,21 +28,41 @@
 		<header class="header">
 			<div class="grid wide">
 				<div class="header__list">
-					<div class="header__left">SIÊU THỊ NỘI THẤT & TRANG TRÍ EVO
-						NỘI THẤT</div>
+					<div class="header__left">
+						<span>SIÊU THỊ GIA DỤNG</span>
+						<c:if test="${sessionScope.account.isAdmin == true}">
+							<a href="/Ecommerce/jsp/dashboard.jsp"
+								class="header__left-dashboard">Đến trang quản trị </a>
+						</c:if>
+					</div>
+
 					<div class="header__right hide-on-mobile-tablet">
-						<div class="header__right-login">
-							<a href="/Ecommerce/jsp/login.jsp"> <i
-								class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
-								Đăng nhập
-							</a>
-						</div>
-						<div class="header__right-register">
-							<a href="/Ecommerce/jsp/register.jsp"> <i
-								class="header__right-register-icon fa-solid fa-user-plus"></i>
-								Đăng ký
-							</a>
-						</div>
+						<c:choose>
+							<c:when test="${not empty sessionScope.account}">
+								<div class="header__right-account">
+									<span>Xin chào, ${sessionScope.account.userName}</span> <a
+										href="/Ecommerce/Logout" class="header__right-logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"><i
+										class="header__right-login-icon fa-solid fa-right-from-bracket"></i>Đăng
+										xuất</a>
+
+
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="header__right-login">
+									<a href="/Ecommerce/jsp/login.jsp"> <i
+										class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
+										Đăng nhập
+									</a>
+								</div>
+								<div class="header__right-register">
+									<a href="/Ecommerce/jsp/register.jsp"> <i
+										class="header__right-register-icon fa-solid fa-user-plus"></i>
+										Đăng ký
+									</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -200,48 +220,48 @@
 		<div class="grid wide">
 			<div class="introduce_item">
 				<h2>Tổng quan:</h2>
-				<p>Evo Web là một thương hiệu bán hàng nội thất trực tuyến nổi
-					tiếng với cam kết cung cấp các sản phẩm nội thất chất lượng cao và
+				<p>Gia dụng Việt là một thương hiệu bán hàng gia dụng trực tuyến nổi
+					tiếng với cam kết cung cấp các sản phẩm gia dụng chất lượng cao và
 					dịch vụ tuyệt vời cho khách hàng. Với mục tiêu mang đến không gian
-					sống đẹp và tiện nghi cho mọi gia đình, Evo Web đã phát triển một
-					loạt các sản phẩm nội thất đa dạng và độc đáo, từ ghế sofa, bàn ăn,
+					sống đẹp và tiện nghi cho mọi gia đình, Gia dụng Việt đã phát triển một
+					loạt các sản phẩm gia dụng đa dạng và độc đáo, từ ghế sofa, bàn ăn,
 					giường ngủ đến tủ quần áo, kệ sách và phụ kiện trang trí.</p>
 			</div>
 			<div class="introduce_item">
-				<h2>Dịch vụ tư vấn thiết kế nội thất chuyên nghiệp:</h2>
-				<p>Ngoài những sản phẩm nội thất chất lượng cao, Evo Web còn
-					cung cấp dịch vụ tư vấn thiết kế nội thất chuyên nghiệp. Với đội
-					ngũ kiến trúc sư, nhà thiết kế nội thất, Evo Web sẽ giúp bạn tạo ra
+				<h2>Dịch vụ tư vấn thiết kế gia dụng chuyên nghiệp:</h2>
+				<p>Ngoài những sản phẩm gia dụng chất lượng cao, Gia dụng Việt còn
+					cung cấp dịch vụ tư vấn thiết kế gia dụng chuyên nghiệp. Với đội
+					ngũ kiến trúc sư, nhà thiết kế, Gia dụng Việt sẽ giúp bạn tạo ra
 					không gian sống đẹp và độc đáo, phù hợp với phong cách và sở thích
 					của bạn.</p>
 			</div>
 			<div class="introduce_item">
 				<h2>Sản phẩm chất lượng cao:</h2>
-				<p>Đặc biệt, Evo Web cam kết sử dụng các vật liệu và công nghệ
+				<p>Đặc biệt, Gia dụng Việt cam kết sử dụng các vật liệu và công nghệ
 					tiên tiến nhất để đảm bảo sản phẩm của chúng tôi có độ bền và chất
 					lượng cao nhất. Chúng tôi luôn tập trung vào việc nghiên cứu và
-					phát triển để mang đến cho khách hàng những sản phẩm nội thất tiên
+					phát triển để mang đến cho khách hàng những sản phẩm gia dụng tiên
 					tiến, hiện đại và đáp ứng được nhu cầu của thị trường.</p>
 			</div>
 			<div class="introduce_item">
 				<h2>Trải nghiệm tuyệt vời:</h2>
-				<p>Evo Web được thiết kế để mang đến trải nghiệm mua sắm nội
-					thất trực tuyến dễ dàng và tiện lợi nhất cho khách hàng. Trang web
-					của Evo Web được thiết kế rất thân thiện với người dùng, cho phép
+				<p>Gia dụng Việt được thiết kế để mang đến trải nghiệm mua sắm gia dụng
+				 trực tuyến dễ dàng và tiện lợi nhất cho khách hàng. Trang web
+					của Gia dụng Việt được thiết kế rất thân thiện với người dùng, cho phép
 					khách hàng tìm kiếm và chọn lựa sản phẩm một cách nhanh chóng và dễ
-					dàng. Hơn nữa, Evo Web còn cung cấp chính sách vận chuyển và lắp
+					dàng. Hơn nữa, Gia dụng Việt còn cung cấp chính sách vận chuyển và lắp
 					đặt nhanh chóng, giúp khách hàng tiết kiệm thời gian và tiền bạc
-					khi mua sắm nội thất trực tuyến.</p>
+					khi mua sắm gia dụng trực tuyến.</p>
 			</div>
 			<div class="introduce_item">
 				<h2>Sự tín nhiệm từ khách hàng</h2>
-				<p>Với các sản phẩm nội thất tuyệt vời và dịch vụ tận tình, Evo
-					Web đã nhận được sự tín nhiệm của hàng nghìn khách hàng trên khắp
+				<p>Với các sản phẩm gia dụng tuyệt vời và dịch vụ tận tình, Gia dụng Việt
+					 đã nhận được sự tín nhiệm của hàng nghìn khách hàng trên khắp
 					đất nước. Từ những căn hộ nhỏ cho đến những ngôi nhà sang trọng,
-					Evo Web sẽ giúp bạn tìm ra những sản phẩm nội thất phù hợp nhất với
+					Gia dụng Việt sẽ giúp bạn tìm ra những sản phẩm gia dụng phù hợp nhất với
 					phong cách và nhu cầu của bạn. Nếu bạn đang tìm kiếm những sản phẩm
-					nội thất tốt nhất để thay đổi không gian sống của mình, hãy ghé
-					thăm Evo Web ngay hôm nay để khám phá bộ sưu tập nội thất độc đáo
+					gia dụng tốt nhất để thay đổi không gian sống của mình, hãy ghé
+					thăm Gia dụng Việt ngay hôm nay để khám phá bộ sưu tập gia dụng độc đáo
 					và đa dạng của chúng tôi.</p>
 			</div>
 		</div>

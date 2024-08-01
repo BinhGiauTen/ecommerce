@@ -3,9 +3,17 @@ package models;
 public class Account {
 	private int accountId;
 	private String userName;
+	private String phone;
 	private String email;
 	private String password;
 	private boolean isAdmin;
+	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public int getAccountId() {
 		return accountId;
 	}
@@ -36,25 +44,28 @@ public class Account {
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	public Account( String userName, String email, String password, boolean isAdmin) {
+	public Account( String userName, String phone, String email, String password, boolean isAdmin) {
 		super();
 		this.userName = userName;
+		this.phone = phone;
 		this.email = email;
 		this.password = password;
 		this.isAdmin = isAdmin;
 	}
 	
 	
-	public Account(String userName, String email, String password) {
+	public Account(String userName, String phone, String email, String password) {
 		super();
 		this.userName = userName;
+		this.phone = phone;
 		this.email = email;
 		this.password = password;
 	}
-	public Account(int accountId, String userName, String email, String password, Boolean isAdmin) {
+	public Account(int accountId, String userName, String phone, String email, String password, Boolean isAdmin) {
 		super();
 		this.accountId = accountId;
 		this.userName = userName;
+		this.phone = phone;
 		this.email = email;
 		this.password = password;
 		this.isAdmin = isAdmin;
@@ -63,11 +74,13 @@ public class Account {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Account [accountId=" + accountId + ", userName=" + userName + ", email=" + email + ", password="
-				+ password + ", isAdmin=" + isAdmin + "]";
+	public Account(int accountId) {
+		super();
+		this.accountId = accountId;
 	}
+	
+	
+
 	
 	
 	

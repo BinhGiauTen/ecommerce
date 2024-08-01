@@ -26,6 +26,14 @@
 	href="<%=request.getContextPath()%>/assets/css/grid.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/responsive.css">
+<script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('orderSuccess')) {
+                alert('Đặt hàng thành công!');
+            }
+        }
+    </script>
 
 </head>
 
@@ -34,14 +42,20 @@
 		<header class="header">
 			<div class="grid wide">
 				<div class="header__list">
-					<div class="header__left">SIÊU THỊ NỘI THẤT & TRANG TRÍ EVO
-						NỘI THẤT</div>
+					<div class="header__left">
+						<span>SIÊU THỊ GIA DỤNG</span>
+						<c:if test="${sessionScope.account.isAdmin == true}">
+							<a href="/Ecommerce/jsp/dashboard.jsp"
+								class="header__left-dashboard">Đến trang quản trị </a>
+						</c:if>
+					</div>
+
 					<div class="header__right hide-on-mobile-tablet">
 						<c:choose>
 							<c:when test="${not empty sessionScope.account}">
 								<div class="header__right-account">
 									<span>Xin chào, ${sessionScope.account.userName}</span> <a
-										href="/Ecommerce/Logout" class="header__right-logout"><i
+										href="/Ecommerce/Logout" class="header__right-logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"><i
 										class="header__right-login-icon fa-solid fa-right-from-bracket"></i>Đăng
 										xuất</a>
 
@@ -146,7 +160,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 		<div class="menu hide-on-mobile-tablet">

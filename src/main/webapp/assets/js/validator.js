@@ -172,6 +172,39 @@ Validator.isSdt = function (selector) {
     }
 }
 
+Validator.isURL = function (selector) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Biểu thức chính quy kiểm tra URL bắt đầu bằng https://
+            var regex = /^https:\/\/.+/;
+            return regex.test(value) ? undefined : "Trường này phải là URL bắt đầu bằng https://";
+        }
+    }
+}
+
+Validator.isPositiveInteger = function (selector) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Biểu thức chính quy kiểm tra số nguyên lớn hơn 0
+            var regex = /^[1-9]\d*$/;
+            return regex.test(value) ? undefined : "Trường này phải là số nguyên lớn hơn 0";
+        }
+    }
+}
+
+Validator.isNumber = function (selector) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Biểu thức chính quy kiểm tra số nguyên lớn hơn 0
+            var regex = /^\d*$/;
+            return regex.test(value) ? undefined : "Trường này phải là số nguyên";
+        }
+    }
+}
+
 Validator.isMatKhau = function (selector) {
     return {
         selector: selector,

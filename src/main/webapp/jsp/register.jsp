@@ -30,21 +30,41 @@
 		<header class="header">
 			<div class="grid wide">
 				<div class="header__list">
-					<div class="header__left">SIÊU THỊ NỘI THẤT & TRANG TRÍ EVO
-						NỘI THẤT</div>
+					<div class="header__left">
+						<span>SIÊU THỊ GIA DỤNG</span>
+						<c:if test="${sessionScope.account.isAdmin == true}">
+							<a href="/Ecommerce/jsp/dashboard.jsp"
+								class="header__left-dashboard">Đến trang quản trị </a>
+						</c:if>
+					</div>
+
 					<div class="header__right hide-on-mobile-tablet">
-						<div class="header__right-login">
-							<a href="/Ecommerce/jsp/login.jsp"> <i
-								class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
-								Đăng nhập
-							</a>
-						</div>
-						<div class="header__right-register">
-							<a href="/Ecommerce/jsp/register.jsp"> <i
-								class="header__right-register-icon fa-solid fa-user-plus"></i>
-								Đăng ký
-							</a>
-						</div>
+						<c:choose>
+							<c:when test="${not empty sessionScope.account}">
+								<div class="header__right-account">
+									<span>Xin chào, ${sessionScope.account.userName}</span> <a
+										href="/Ecommerce/Logout" class="header__right-logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"><i
+										class="header__right-login-icon fa-solid fa-right-from-bracket"></i>Đăng
+										xuất</a>
+
+
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="header__right-login">
+									<a href="/Ecommerce/jsp/login.jsp"> <i
+										class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
+										Đăng nhập
+									</a>
+								</div>
+								<div class="header__right-register">
+									<a href="/Ecommerce/jsp/register.jsp"> <i
+										class="header__right-register-icon fa-solid fa-user-plus"></i>
+										Đăng ký
+									</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -203,23 +223,29 @@
 		</nav>
 		<div class="register__form">
 			<div class="register__left hide-on-mobile">
-				<img src="<%=request.getContextPath()%>/assets/img/logo1.png" alt="" class="form-img">
+				<img src="<%=request.getContextPath()%>/assets/img/logo1.png" alt=""
+					class="form-img">
 			</div>
-			<form action="/Ecommerce/Register" method="POST" class="form" id="form-1">
+			<form action="/Ecommerce/Register" method="POST" class="form"
+				id="form-1">
 				<div class="form-group">
 					<label for="fullname" class="form-label">Tên đầy đủ</label> <input
 						id="fullname" name="fullname" type="text"
 						placeholder="VD: Văn Bình" class="form-control"> <span
 						class="form-message"></span>
 				</div>
-
+				<div class="form-group">
+					<label for="phone" class="form-label">Số điện thoại</label> <input
+						id="phone" name="phone" type="text"
+						placeholder="VD: 0375148926" class="form-control"> <span
+						class="form-message"></span>
+				</div>
 				<div class="form-group">
 					<label for="email" class="form-label">Email</label> <input
 						id="email" name="email" type="text"
 						placeholder="VD: email@domain.com" class="form-control"> <span
 						class="form-message"></span>
 				</div>
-
 				<div class="form-group">
 					<label for="password" class="form-label">Mật khẩu</label> <input
 						id="password" name="password" type="password"
@@ -344,6 +370,8 @@
 			rules : [
 					Validator.isRequired('#fullname'),
 					Validator.isTen('#fullname'),
+					Validator.isRequired('#phone'),
+					Validator.isSdt('#phone'),
 					Validator.isRequired('#email'),
 					Validator.isEmail('#email'),
 					Validator.minLength('#password', 3),

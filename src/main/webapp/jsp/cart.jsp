@@ -30,21 +30,38 @@
 		<header class="header">
 			<div class="grid wide">
 				<div class="header__list">
-					<div class="header__left">SIÊU THỊ NỘI THẤT & TRANG TRÍ EVO
-						NỘI THẤT</div>
+					<div class="header__left">
+						<span>SIÊU THỊ GIA DỤNG</span>
+						<c:if test="${sessionScope.account.isAdmin == true}">
+							<a href="/Ecommerce/jsp/dashboard.jsp"
+								class="header__left-dashboard">Đến trang quản trị </a>
+						</c:if>
+					</div>
 					<div class="header__right hide-on-mobile-tablet">
-						<div class="header__right-login">
-							<a href="/Ecommerce/jsp/login.jsp"> <i
-								class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
-								Đăng nhập
-							</a>
-						</div>
-						<div class="header__right-register">
-							<a href="/Ecommerce/jsp/register.jsp"> <i
-								class="header__right-register-icon fa-solid fa-user-plus"></i>
-								Đăng ký
-							</a>
-						</div>
+						<c:choose>
+							<c:when test="${not empty sessionScope.account}">
+								<div class="header__right-account">
+									<span>Xin chào, ${sessionScope.account.userName}</span> <a
+										href="/Ecommerce/Logout" class="header__right-logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"><i
+										class="header__right-login-icon fa-solid fa-right-from-bracket"></i>Đăng
+										xuất</a>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="header__right-login">
+									<a href="/Ecommerce/jsp/login.jsp"> <i
+										class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
+										Đăng nhập
+									</a>
+								</div>
+								<div class="header__right-register">
+									<a href="/Ecommerce/jsp/register.jsp"> <i
+										class="header__right-register-icon fa-solid fa-user-plus"></i>
+										Đăng ký
+									</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -55,7 +72,8 @@
 					<i class="fa-solid fa-bars"></i>
 				</button>
 				<div class="header-logo hide-on-mobile">
-					<a href="/Ecommerce/Home"><img src="<%=request.getContextPath()%>/assets/img/logo1.png" alt=""
+					<a href="/Ecommerce/Home"><img
+						src="<%=request.getContextPath()%>/assets/img/logo1.png" alt=""
 						class="header-img"></a>
 				</div>
 				<div class="header-search">
@@ -90,8 +108,9 @@
 								<div class="header__cart-list header__cart-list--no-cart">
 									<c:choose>
 										<c:when test="${empty cart.cartItems}">
-											<img src="<%=request.getContextPath()%>/assets/img/no-cart.png" alt=""
-												class="header__cart-no-cart-img">
+											<img
+												src="<%=request.getContextPath()%>/assets/img/no-cart.png"
+												alt="" class="header__cart-no-cart-img">
 											<span class="header__cart-list--nocart-msg"> Chưa có
 												sản phẩm </span>
 										</c:when>
@@ -116,8 +135,9 @@
 														</div></li>
 												</c:forEach>
 											</ul>
-											<a href="/Ecommerce/jsp/cart.jsp" class="header__cart-view-cart btn btn--primary">Xem
-												giỏ hàng</a>
+											<a href="/Ecommerce/jsp/cart.jsp"
+												class="header__cart-view-cart btn btn--primary">Xem giỏ
+												hàng</a>
 										</c:otherwise>
 									</c:choose>
 								</div>
@@ -135,19 +155,20 @@
 							<i class="fa-solid fa-bars"></i> <span>Tất cả sản phẩm</span> <i
 								class="fa-solid fa-angle-down"></i>
 						</div>
-
 					</div>
 					<div class="grid__column-3">
 						<ul class="nav__list">
-							<li class="nav__item nav__item--active"><a href="/Ecommerce/Home">Trang
-									chủ</a></li>
-							<li class="nav__item "><a href="/Ecommerce/jsp/introduce.jsp">Giới
-									thiệu</a></li>
-							<li class="nav__item "><a href="/Ecommerce/Product"> Sản phẩm
-									<i class="fa-solid fa-angle-down"></i>
+							<li class="nav__item nav__item--active"><a
+								href="/Ecommerce/Home">Trang chủ</a></li>
+							<li class="nav__item "><a
+								href="/Ecommerce/jsp/introduce.jsp">Giới thiệu</a></li>
+							<li class="nav__item "><a href="/Ecommerce/Product"> Sản
+									phẩm <i class="fa-solid fa-angle-down"></i>
 							</a></li>
-							<li class="nav__item"><a href="/Ecommerce/jsp/news.jsp">Tin tức</a></li>
-							<li class="nav__item"><a href="/Ecommerce/jsp/contact.jsp">Liên hệ</a></li>
+							<li class="nav__item"><a href="/Ecommerce/jsp/news.jsp">Tin
+									tức</a></li>
+							<li class="nav__item"><a href="/Ecommerce/jsp/contact.jsp">Liên
+									hệ</a></li>
 						</ul>
 					</div>
 				</div>
@@ -156,12 +177,12 @@
 		<div class="modal hide">
 			<div class="modal-inner">
 				<div class="modal-header">
-					<img src="<%=request.getContextPath()%>/assets/img/logo1.png" alt=""> <i
-						class="fa-solid fa-arrow-left"></i>
+					<img src="<%=request.getContextPath()%>/assets/img/logo1.png"
+						alt=""> <i class="fa-solid fa-arrow-left"></i>
 				</div>
 				<div class="modal-content">
-					<a href="/Ecommerce/jsp/login.jsp">Đăng nhập</a> <a href="/Ecommerce/jsp/register.jsp">Đăng
-						ký</a>
+					<a href="/Ecommerce/jsp/login.jsp">Đăng nhập</a> <a
+						href="/Ecommerce/jsp/register.jsp">Đăng ký</a>
 				</div>
 				<div class="menu__main">
 					<i class="fa-solid fa-bars"></i> <span>Tất cả sản phẩm</span> <i
@@ -181,11 +202,13 @@
 					<li class="nav__item"><a href="/Ecommerce/Home">Trang chủ</a></li>
 					<li class="nav__item "><a href="/Ecommerce/jsp/introduce.jsp">Giới
 							thiệu</a></li>
-					<li class="nav__item "><a href="/Ecommerce/Product"> Sản phẩm <i
-							class="fa-solid fa-angle-down"></i>
+					<li class="nav__item "><a href="/Ecommerce/Product"> Sản
+							phẩm <i class="fa-solid fa-angle-down"></i>
 					</a></li>
-					<li class="nav__item"><a href="/Ecommerce/jsp/news.jsp">Tin tức</a></li>
-					<li class="nav__item"><a href="/Ecommerce/jsp/contact.jsp">Liên hệ</a></li>
+					<li class="nav__item"><a href="/Ecommerce/jsp/news.jsp">Tin
+							tức</a></li>
+					<li class="nav__item"><a href="/Ecommerce/jsp/contact.jsp">Liên
+							hệ</a></li>
 				</ul>
 			</div>
 		</div>
@@ -205,7 +228,6 @@
 				<c:otherwise>
 					<div class="grid wide">
 						<div class="cart-label">
-							<input type="checkbox">
 							<div class="cart-label-name">Sản phẩm</div>
 							<div class="cart-label-other">
 								<div>Đơn giá</div>
@@ -217,7 +239,6 @@
 						<c:forEach var="cartItem" items="${cart.cartItems}">
 							<form action="/Ecommerce/Cart" method="post">
 								<div class="cart-content">
-									<input type="checkbox">
 									<div class="cart-label-wrap">
 										<div>${cartItem.productName}</div>
 										<img src="${cartItem.img_url}">
@@ -256,36 +277,57 @@
 								</div>
 							</form>
 						</c:forEach>
+						<div class="checkout-summary">
+							<div class="checkout-summary-total">
+								<div>
+									<span>Số sản phẩm đã chọn:</span> <span>${cart.lineItemCount}</span>
+								</div>
+								<div class="total-price-cart">
+									<span>Tổng cộng:</span> <span class="total-price-cart-number"><fmt:formatNumber
+											value="${cart.totalPrice}" type="number" pattern="#,##0" />đ</span>
+								</div>
+							</div>
+							<div class="checkout-button">
+								<button onclick="checkLoginAndProceed()"
+									class="btn btn--primary">Đặt hàng</button>
+							</div>
+						</div>
 					</div>
 				</c:otherwise>
 			</c:choose>
 		</div>
-
 	</div>
-
 	<div class="footer">
 		<div class="grid wide">
 			<div class="row">
 				<div class="col l-3 m-6 c-12">
 					<h3 class="footer__heading">Về chúng tôi</h3>
 					<ul class="footer__list">
-						<li class="footer__item"><a href="/Ecommerce/Home">Trang chủ</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/introduce.jsp">Giới
-								thiệu</a></li>
-						<li class="footer__item"><a href="/Ecommerce/Product">Sản phẩm</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/news.jsp">Tin tức</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/contact.jsp">Liên hệ</a></li>
+						<li class="footer__item"><a href="/Ecommerce/Home">Trang
+								chủ</a></li>
+						<li class="footer__item"><a
+							href="/Ecommerce/jsp/introduce.jsp">Giới thiệu</a></li>
+						<li class="footer__item"><a href="/Ecommerce/Product">Sản
+								phẩm</a></li>
+						<li class="footer__item"><a href="/Ecommerce/jsp/news.jsp">Tin
+								tức</a></li>
+						<li class="footer__item"><a href="/Ecommerce/jsp/contact.jsp">Liên
+								hệ</a></li>
 					</ul>
 				</div>
 				<div class="col l-3 m-6 c-12">
 					<h3 class="footer__heading">Hỗ trợ khách hàng</h3>
 					<ul class="footer__list">
-						<li class="footer__item"><a href="/Ecommerce/Home">Trang chủ</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/introduce.jsp">Giới
-								thiệu</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/Product">Sản phẩm</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/news.jsp">Tin tức</a></li>
-						<li class="footer__item"><a href="/Ecommerce/jsp/contact.jsp">Liên hệ</a></li>
+						<li class="footer__item"><a href="/Ecommerce/Home">Trang
+								chủ</a></li>
+						<li class="footer__item"><a
+							href="/Ecommerce/jsp/introduce.jsp">Giới thiệu</a></li>
+						<li class="footer__item"><a href="/Ecommerce/jsp/Product">Sản
+								phẩm</a></li>
+						<li class="footer__item"><a href="/Ecommerce/jsp/news.jsp">Tin
+								tức</a></li>
+						<li class="footer__item"><a href="/Ecommerce/jsp/contact.jsp">Liên
+								hệ</a></li>
 					</ul>
 				</div>
 				<div class="col l-3 m-6 c-12">
@@ -325,7 +367,6 @@
 							alt="">
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div class="footer__bottom">
@@ -335,10 +376,16 @@
 			</div>
 		</div>
 	</div>
-	</div>
-
 	<script src="assets/js/script.js"></script>
-
+	<script>
+    function checkLoginAndProceed() {
+        var isLoggedIn = ${not empty sessionScope.account ? 'true' : 'false'};
+        if (isLoggedIn) {
+            window.location.href = '/Ecommerce/jsp/checkout.jsp';
+        } else {
+            window.location.href = '/Ecommerce/jsp/login.jsp';
+        }
+    }
+</script>
 </body>
-
 </html>

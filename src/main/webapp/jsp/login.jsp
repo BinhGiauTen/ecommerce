@@ -30,21 +30,41 @@
 		<header class="header">
 			<div class="grid wide">
 				<div class="header__list">
-					<div class="header__left">SIÊU THỊ NỘI THẤT & TRANG TRÍ EVO
-						NỘI THẤT</div>
+					<div class="header__left">
+						<span>SIÊU THỊ GIA DỤNG</span>
+						<c:if test="${sessionScope.account.isAdmin == true}">
+							<a href="/Ecommerce/jsp/dashboard.jsp"
+								class="header__left-dashboard">Đến trang quản trị </a>
+						</c:if>
+					</div>
+
 					<div class="header__right hide-on-mobile-tablet">
-						<div class="header__right-login">
-							<a href="/Ecommerce/jsp/login.jsp"> <i
-								class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
-								Đăng nhập
-							</a>
-						</div>
-						<div class="header__right-register">
-							<a href="/Ecommerce/jsp/register.jsp"> <i
-								class="header__right-register-icon fa-solid fa-user-plus"></i>
-								Đăng ký
-							</a>
-						</div>
+						<c:choose>
+							<c:when test="${not empty sessionScope.account}">
+								<div class="header__right-account">
+									<span>Xin chào, ${sessionScope.account.userName}</span> <a
+										href="/Ecommerce/Logout" class="header__right-logout"><i
+										class="header__right-login-icon fa-solid fa-right-from-bracket" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất không?');"></i>Đăng
+										xuất</a>
+
+
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="header__right-login">
+									<a href="/Ecommerce/jsp/login.jsp"> <i
+										class="header__right-login-icon fa-solid fa-right-to-bracket"></i>
+										Đăng nhập
+									</a>
+								</div>
+								<div class="header__right-register">
+									<a href="/Ecommerce/jsp/register.jsp"> <i
+										class="header__right-register-icon fa-solid fa-user-plus"></i>
+										Đăng ký
+									</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>

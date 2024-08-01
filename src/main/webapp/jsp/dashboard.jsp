@@ -7,7 +7,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Admin Dashboard</title>
+	<title>Trang chủ</title>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
 				<form>
 					<div class="form-group mb-0">
 						<i class="dw dw-search2 search-icon"></i>
-						<input type="text" class="form-control search-input" placeholder="Search Here">
+						<input type="text" class="form-control search-input" placeholder="Tìm kiếm tại đây...">
 					</div>
 				</form>
 			</div>
@@ -64,34 +64,6 @@
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo2.jpg" alt="">
-										<h3>Erik L. Richards</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo3.jpg" alt="">
-										<h3>John Doe</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/photo4.jpg" alt="">
-										<h3>Renee I. Hansen</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="vendors/images/img.jpg" alt="">
-										<h3>Vicki M. Coleman</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
-									</a>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -103,13 +75,14 @@
 						<span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span>
-						<span class="user-name">Ross C. Lopez</span>
+						<span class="user-name">Admin</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Tài khoản</a>
+						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Cài đặt</a>
+						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Trợ giúp</a>
+						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Đăng xuất</a>
+						<a class="dropdown-item" href="/Ecommerce/Home"><i class="dw dw-home"></i>Về trang bán hàng</a>
 					</div>
 				</div>
 			</div>
@@ -120,8 +93,8 @@
 	<div class="right-sidebar">
 		<div class="sidebar-title">
 			<h3 class="weight-600 font-16 text-blue">
-				Layout Settings
-				<span class="btn-block font-weight-400 font-12">User Interface Settings</span>
+				Cài đặt giao diện
+				<span class="btn-block font-weight-400 font-12">Cài đặt giao diện người dùng</span>
 			</h3>
 			<div class="close-sidebar" data-toggle="right-sidebar-close">
 				<i class="icon-copy ion-close-round"></i>
@@ -129,16 +102,16 @@
 		</div>
 		<div class="right-sidebar-body customscroll">
 			<div class="right-sidebar-body-content">
-				<h4 class="weight-600 font-18 pb-10">Header Background</h4>
+				<h4 class="weight-600 font-18 pb-10">Nền tiêu đề</h4>
 				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">Trắng</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Đen</a>
 				</div>
 
-				<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+				<h4 class="weight-600 font-18 pb-10">Nền thanh bên</h4>
 				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">Trắng</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Đen</a>
 				</div>
 
 			</div>
@@ -158,28 +131,46 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+						<a href="/Ecommerce/jsp/dashboard.jsp" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Trang chủ</span>
 						</a>
 						
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
+							<span class="micon dw dw-edit2"></span><span class="mtext">Sản phẩm</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="#">Form Basic</a></li>
-							<li><a href="#">Advanced Components</a></li>
+							<li><a href="/Ecommerce/AddProduct">Thêm sản phẩm</a></li>
+							<li><a href="/Ecommerce/ListProduct">Danh sách sản phẩm</a></li>
 							
 						</ul>
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-library"></span><span class="mtext">Tables</span>
+							<span class="micon dw dw-library"></span><span class="mtext">Danh mục sản phẩm</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="#">Basic Tables</a></li>
-							<li><a href="#">DataTables</a></li>
+							<li><a href="/Ecommerce/AddCategory">Thêm danh mục</a></li>
+							<li><a href="/Ecommerce/ListCategory">Danh sách danh mục</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-user"></span><span class="mtext">Tài khoản</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="/Ecommerce/AddAccount">Thêm tài khoản</a></li>
+							<li><a href="/Ecommerce/ListAccount">Danh sách tài khoản</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-copy"></span><span class="mtext">Đơn hàng</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="/Ecommerce/ListOrder">Danh sách đơn hàng</a></li>
+							<li><a href="/Ecommerce/jsp/orderDetail.jsp">Chi tiết đơn hàng</a></li>
 						</ul>
 					</li>
 

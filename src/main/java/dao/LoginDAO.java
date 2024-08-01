@@ -24,10 +24,11 @@ public class LoginDAO {
 			while (rs.next()) {
 				int accountId = rs.getInt("account_id");
 				String userName = rs.getString("user_name");
+				String phone = rs.getString("phone");
 				String mail = rs.getString("email");
 				String pass= rs.getString("password");
 				boolean isAdmin = rs.getBoolean("is_admin");				
-				a = new Account(accountId, userName, mail, pass, isAdmin);
+				a = new Account(accountId, userName, phone, mail, pass, isAdmin);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

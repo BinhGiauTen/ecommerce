@@ -38,7 +38,7 @@ public class RegisterDAO {
     }
 
     // Phương thức đăng ký tài khoản mới
-    public boolean register(String userName, String email, String password) {
+    public boolean register(String userName, String phone, String email, String password) {
         if (isEmailExist(email)) {
             return false; // Email đã tồn tại
         }
@@ -48,12 +48,13 @@ public class RegisterDAO {
         try {
             ConnectDB.getInstance();
             Connection con = ConnectDB.getConnection();
-            String sql = "INSERT INTO Account(user_name, email, password, is_admin) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO Account(user_name, phone, email, password, is_admin) VALUES(?,?,?,?,?)";
             sta = con.prepareStatement(sql);
             sta.setString(1, userName);
-            sta.setString(2, email);
-            sta.setString(3, password);
-            sta.setBoolean(4, false);
+            sta.setString(2,phone);
+            sta.setString(3, email);
+            sta.setString(4, password);
+            sta.setBoolean(5, false);
             n = sta.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
